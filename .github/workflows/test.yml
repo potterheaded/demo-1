@@ -1,0 +1,20 @@
+name: 'get repo stats'
+on:
+  pull_request:
+  issues:
+  push:
+
+jobs:
+  repo-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get repo stats
+        id: stats
+        uses: ./
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+      
+      - name: print repo stats
+        run: |
+          echo "PR stats: ${{ steps.stats.outputs.pull_request_stats }}"
+          echo "PR stats: ${{ steps.stats.outputs.issue_stats }}"
