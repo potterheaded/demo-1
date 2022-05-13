@@ -1,4 +1,4 @@
-// const github = require('@actions/github');
+ const github = require('@actions/github');
 // const core = require('@actions/core');
 
 async function run() {
